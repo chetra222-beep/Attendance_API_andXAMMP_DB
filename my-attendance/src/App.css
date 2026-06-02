@@ -1,0 +1,325 @@
+កំណត់ទម្រង់ទូទៅ
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Khmer OS Battambang', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ផ្ទៃខាងក្រោយធំ (ពណ៌សស្អាត និងទន់ភ្នែក) */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff; /* ពណ៌ស */
+  padding: 20px;
+}
+
+/* ប្រអប់កាត (Card Box) */
+.card-box {
+  background: #ffffff;
+  padding: 40px;
+  max-width: 480px;
+  width: 100%;
+  border-radius: 16px;
+  /* បង្កើតស្រមោលស្រទន់ជុំវិញប្រអប់ដើម្បីឱ្យលេចធ្លោលើផ្ទៃពណ៌ស */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f0f0f0;
+}
+
+/* ចំណងជើង */
+.title {
+  color: #1a1a1a;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* ទម្រង់ Form */
+.attendance-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* គ្រុប Input នីមួយៗ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ស្លាកអក្សរ (Label) */
+.form-group label {
+  color: #4a5568;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ប្រអប់បញ្ចូលទិន្នន័យ (Input Field) */
+.form-group input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background-color: #f8fafc; /* ពណ៌ប្រផេះស្រាលខ្លាំងក្នុងប្រអប់ */
+  color: #334155;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* នៅពេលដែលចុចលើ Input (Focus Effect) */
+.form-group input:focus {
+  border-color: #3b82f6; /* ប្តូរទៅពណ៌ខៀវស្រទន់ */
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); /* ស្រមោលខៀវជុំវិញ */
+}
+
+/* ប៊ូតុងចុច (Submit Button) */
+.btn-submit {
+  background-color: #10b981; /* ពណ៌បៃតងតំណាងឱ្យភាពជោគជ័យ */
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+/* នៅពេលយក Mouse ទៅដាក់លើប៊ូតុង */
+.btn-submit:hover {
+  background-color: #059669;
+  transform: translateY(-1px); /* រំកិលឡើងលើបន្តិច */
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* នៅពេលចុចលើប៊ូតុង */
+.btn-submit:active {
+  transform: translateY(1px);
+}
+
+/* សារបង្ហាញលទ្ធផល (Response Message) */
+.response-message {
+  margin-top: 25px;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  animation: fadeIn 0.4s ease;
+}
+
+/* បង្កើត Effect ពេលលោតសារចេញមក */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* កែប្រែ container ឱ្យបង្ហាញកាត និងតារាងទន្ទឹមគ្នា ឬលើក្រោម */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fafafa;
+  padding: 40px 20px;
+}
+
+/* ប៊ូតុង QR Code */
+.btn-qr {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-qr:hover { background-color: #1d4ed8; }
+
+/* ប្រអប់បញ្ជីឈ្មោះសិស្ស */
+.list-box {
+  background: #ffffff;
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f0f0f0;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* ប៊ូតុង Excel */
+.btn-excel {
+  background-color: #047857;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-excel:hover { background-color: #065f46; }
+
+/* ម៉ូតតារាង Attendance Table */
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.attendance-table th, .attendance-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.attendance-table th {
+  background-color: #f8fafc;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.attendance-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+/* ប្រអប់លោតបង្ហាញ QR Code ផ្ទាល់ខ្លួន */
+.qr-result-box {
+  background-color: #f0fdf4;
+  border: 2px dashed #10b981;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.qr-result-box h4 {
+  color: #065f46;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.qr-result-box p {
+  color: #047857;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.qr-code {
+  background: white;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.btn-close-qr {
+  margin-top: 15px;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+}
+.btn-close-qr:hover {
+  background-color: #059669;
+}
+
+.type-selector {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.type-btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid #e2e8f0;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.type-btn input { display: none; } /* លាក់ radio button ធម្មតា */
+
+/* នៅពេលចុចជ្រើសរើស */
+.type-btn.present.active {
+  background-color: #e6f4ea;
+  border-color: #10b981;
+  color: #137333;
+}
+.type-btn.absent.active {
+  background-color: #fce8e6;
+  border-color: #ef4444;
+  color: #c5221f;
+}
+.gender-select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  font-size: 15px;
+  outline: none;
+}
+.type-selector {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+.type-btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid #e2e8f0;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.type-btn input { display: none; }
+
+.type-btn.present.active {
+  background-color: #e6f4ea;
+  border-color: #10b981;
+  color: #137333;
+}
+.type-btn.absent.active {
+  background-color: #fce8e6;
+  border-color: #ef4444;
+  color: #c5221f;
+}
+.gender-select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  font-size: 15px;
+  outline: none;
+}
